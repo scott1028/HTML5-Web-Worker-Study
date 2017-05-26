@@ -2,6 +2,7 @@
 
 - Ref: https://stackoverflow.com/questions/5408406/web-workers-without-a-separate-javascript-file
 - Ref: https://www.html5rocks.com/en/tutorials/workers/basics/#toc-gettingstarted
+- For NodeJS as Native Thread Web Worker Library Ref: https://github.com/audreyt/node-webworker-threads
 
 ![Alt text](https://raw.githubusercontent.com/scott1028/HTML5-Web-Worker-Study/master/sample01.png "sample01.png")
 ![Alt text](https://raw.githubusercontent.com/scott1028/HTML5-Web-Worker-Study/sample01_ImportScripts.png "sample01_ImportScripts.png")
