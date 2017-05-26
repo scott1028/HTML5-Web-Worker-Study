@@ -6,22 +6,26 @@
 </head>
 <body>
 <p>JavaScript Multi-Thread 替代方案</p>
+<script>
+    function createWorker(script_string){
+        // `$origin` is for IE, due to no location.origin in web worker
+        var worker = new Worker(window.URL.createObjectURL(new Blob([
+            script_string + '; var $origin = "'+ location.origin + '"'
+            ], {type: 'text/javascript'})))
+        return worker;
+    }
+</script>
 <script id="worker01" type="worker/javascript">
     self.onmessage = function(e){
-        importScripts(location.origin + '/lib.js');  // full URL Here
+        importScripts($origin + '/lib.js');  // full URL Here
         importScripts(['https://scott1028.github.io/HTML5-Web-Worker-Study/lib2.js']);  // Using Lib From (cross domain)
-        //
-        // importScripts('http://192.168.1.170:8081/lib.js');  // for IE, due to no location.origin in web worker
-        // importScripts('https://scott1028.github.io/HTML5-Web-Worker-Study/lib2.js');  // for IE, due to no location.origin in web worker
-        //
         console.log(e, importScripts);
         self.postMessage('sent from worker: ' + echo(100));
         self.postMessage('sent from worker: ' + echo2(200));
     };
 </script>
 <script>
-    'use strict';
-    var worker = new Worker(window.URL.createObjectURL(new Blob([document.querySelector('#worker01').textContent], {type: 'text/javascript'})))
+    var worker = createWorker(document.querySelector('#worker01').textContent);
 
     worker.onmessage = function(e){
         console.log('received from worker', e, e.data);
