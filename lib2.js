@@ -1,7 +1,7 @@
 'use strict';
 
-function echo(v){
-    v += 1;
+function echo2(v){
+    v += 10;
     console.log(v);
     return v;
 };
