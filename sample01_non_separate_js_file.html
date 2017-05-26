@@ -11,7 +11,7 @@
         importScripts(location.origin + '/lib.js');  // full URL Here
         importScripts(['https://scott1028.github.io/HTML5-Web-Worker-Study/lib2.js']);  // Using Lib From (cross domain)
         console.log(e, importScripts);
-        self.postMessage('sent from worker: ' + echo(100));
+        self.postMessage('sent from worker: ' + echo(100) + '; ' + echo2(200));
     };
 </script>
 <script>
