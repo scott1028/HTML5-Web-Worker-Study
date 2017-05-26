@@ -22,7 +22,9 @@
     var worker = createWorker(function(){
         self.onmessage = function(e){
             console.log(e);
-            self.postMessage('Hello World!!!');
+            setInterval(function(){
+                self.postMessage('Hello World!!!' + (new Date).getTime());
+            }, 1000);
         };
     });
 
