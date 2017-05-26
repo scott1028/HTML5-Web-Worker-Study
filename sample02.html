@@ -24,6 +24,7 @@
             console.log(e);
             setInterval(function(){
                 self.postMessage('Hello World!!!' + (new Date).getTime());
+                self.postMessage($origin);
             }, 1000);
         };
     });
