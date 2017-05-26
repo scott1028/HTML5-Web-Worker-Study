@@ -1,4 +1,4 @@
-# Non Separate JS File Web Worker Introduce
+# Non Separate JS File Web Worker Introduce (For IE11, Chrome, FireFox)
 
 - Ref: https://stackoverflow.com/questions/5408406/web-workers-without-a-separate-javascript-file
 
