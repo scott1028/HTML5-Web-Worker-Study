@@ -10,8 +10,13 @@
     self.onmessage = function(e){
         importScripts(location.origin + '/lib.js');  // full URL Here
         importScripts(['https://scott1028.github.io/HTML5-Web-Worker-Study/lib2.js']);  // Using Lib From (cross domain)
+        //
+        // importScripts('http://192.168.1.170:8081/lib.js');  // for IE, due to no location.origin in web worker
+        // importScripts('https://scott1028.github.io/HTML5-Web-Worker-Study/lib2.js');  // for IE, due to no location.origin in web worker
+        //
         console.log(e, importScripts);
-        self.postMessage('sent from worker: ' + echo(100) + '; ' + echo2(200));
+        self.postMessage('sent from worker: ' + echo(100));
+        self.postMessage('sent from worker: ' + echo2(200));
     };
 </script>
 <script>
