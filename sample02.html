@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Worker Demo#2</title>
+    <script type="text/javascript" src="http://scott1028.github.io/sct-plugin/src/hacks/others.js"></script>
+</head>
+<body>
+<p>JavaScript Multi-Thread 替代方案#2</p>
+<!-- <script>
+    function createWorker(script){
+        if(typeof script === 'function')
+            script = `(${script.toString()})()`;
+        // $origin` is for IE, due to no location.origin in web worker.
+        var worker = new Worker(window.URL.createObjectURL(new Blob([`var $origin = '${location.origin}';${script};`], {type: 'text/javascript'})))
+        // Usage
+        // worker.postMessage( ... );
+        // worker.onmessage = function(e){ ... };
+        return worker;
+    }
+</script> -->
+<script>
+    var worker = createWorker(function(){
+        self.onmessage = function(e){
+            console.log(e);
+            self.postMessage('Hello World!!!');
+        };
+    });
+
+    worker.onmessage = function(e){
+        console.log('received from worker', e, e.data);
+    };
+
+    worker.postMessage('Hello World!');
+</script>
+</body>
+</html>
