@@ -9,7 +9,7 @@
 - Using JS Library by `importScripts('script1.js');`
 
 ```
-// `importScripts` Only Availalbe in Web Worker Scope
+// `importScripts` Only Availalbe in Web Worker Scope and `Allowed Cross Domain Import`.
 //
 // worker.js:
 importScripts('script1.js');
